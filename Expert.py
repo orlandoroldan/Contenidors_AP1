@@ -1,9 +1,3 @@
-"""
-Template file for expert.py module.
-"""
-
-
-
 import sys
 import curses
 
