@@ -1,8 +1,3 @@
-"""
-Template file for simple.py module.
-"""
-
-
 import sys
 import curses
 
@@ -88,11 +83,11 @@ class Strategy:
         current_time += 1
 
         while current_time < ending_time and not self.empty_store():
-            for i in range(1, 5):
+            for i in range(1, 5): # for each container size
                 p, new_p = i * (i - 1), i * i
-                for j in range(2):
+                for j in range(2): # to the right and to the left
                     cont = self.next_container(p)
-                    while current_time < ending_time and cont is not None:
+                    while current_time < ending_time and cont is not None:     # cont is None when pile is empty
                         self.treat_container(cont, current_time, new_p)
                         current_time += 1
                         cont = self.next_container(p)
