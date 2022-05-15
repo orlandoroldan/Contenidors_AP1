@@ -1,7 +1,3 @@
-"""
-Template file for store.py module.
-"""
-
 from dataclasses import dataclass
 from typing import Optional, TextIO, List, Tuple, Dict
 import curses
@@ -24,8 +20,8 @@ class TimeRange:
     start: TimeStamp
     end: TimeStamp
 
-# Representa el contenidor (identificador, amplada, preu, període d'arribada
-# i de lliurament)
+# Represents a container (identifier, width, price, arrival period
+# and delivery period)
 @dataclass
 class Container:
     identifier: int
@@ -49,7 +45,7 @@ class Container:
 
         return self.delivery.start < other.delivery.start
 
-    # We are not going to use it. But we have it in case someone wanted to check
+    # We are not going to use this function but we have it in case someone wanted to check
     def valid_container(self) -> bool:
         """Used to check if a container is valid for a certain Store."""
 
@@ -69,11 +65,11 @@ class Container:
 # Store has no knowledge of time
 class Store:
 
-    _width: int
-    _cash: int
-    _frame: List[List[Container]]
-    _container_location: Dict[int, Location]
-    _containers_in_store: List[Container] # ordered list of containers in store, useful for expert strategies
+    _width: int                                     # width of the store
+    _cash: int                                      # cash generated
+    _frame: List[List[Container]]                   # matrix that represents the store
+    _container_location: Dict[int, Location]        # contains the location of each container in the store
+    _containers_in_store: List[Container]           # ordered list of containers in store, useful for expert strategies
 
     def __init__(self, width: int):
 
